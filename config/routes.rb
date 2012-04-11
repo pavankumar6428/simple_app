@@ -1,4 +1,30 @@
 SimpleApp::Application.routes.draw do
+ 
+  get "users/new"
+
+match '/signup',:to => 'users#new'
+
+root :to => 'pages#home'
+
+match '/', :to => 'pages#home'
+match 'root_path', :to => 'pages#home'
+match '/contact', :to => 'pages#contact'
+match '/about',   :to => 'pages#about'
+match '/help',    :to => 'pages#help'
+
+match '/users/1', :to => 'users#show'
+
+
+
+
+
+#match 'contact_path', :to => 'pages#contact'
+#match 'about_path', :to => 'pages#about'
+
+#match 'help_path', :to => 'pages#help'
+
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

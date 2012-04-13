@@ -1,18 +1,25 @@
 SimpleApp::Application.routes.draw do
  
+  get "sessions/new"
+
   get "users/new"
-
-match '/signup',:to => 'users#new'
-
-root :to => 'pages#home'
-
 match '/', :to => 'pages#home'
 match 'root_path', :to => 'pages#home'
 match '/contact', :to => 'pages#contact'
 match '/about',   :to => 'pages#about'
 match '/help',    :to => 'pages#help'
+root :to => 'pages#home'
 
-match '/users/1', :to => 'users#show'
+resources :users
+#match '/signup',:to => 'users#new'
+match '/users/3', :to => 'users#show'
+match '/create', :to => 'users#create'
+
+resources :sessions, :only => [:new, :create, :destroy]
+match '/signup', :to => 'users#new'
+match '/signin', :to => 'sessions#new'
+match '/signout', :to => 'sessions#destroy'
+
 
 
 

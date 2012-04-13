@@ -19,9 +19,7 @@ response.should be_success
 end
 it "should have the right title" do
 get 'contact'
-response.should have_selector("title",
-:content =>
-"Ruby on Rails Tutorial Sample App | Contact")
+response.should have_selector("title",:content =>"Ruby on Rails Tutorial Sample App | Contact")
 end
 end
 describe "GET 'about'" do
@@ -36,5 +34,4 @@ response.should have_selector("title",
 "Ruby on Rails Tutorial Sample App | About")
 end
 end
-
 end
